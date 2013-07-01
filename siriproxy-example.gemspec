@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{My first siriproxy plugins}
   s.description = %q{ }
 
-  s.rubyforge_project = "siriproxy-zooz"
+  s.rubyforge_project = "siriproxy-test"
 
   s.files         = `git ls-files 2> /dev/null`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/* 2> /dev/null`.split("\n")
