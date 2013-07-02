@@ -8,7 +8,7 @@ require 'rubygems'
 gem 'net-ssh'
 require 'net/ssh'
 
-#######
+####### test
 # This is a "hello world" style plugin. It simply intercepts the phrase "test siri proxy" and responds
 # with a message about the proxy being up and running (along with a couple other core features). This
 # is good base code for other plugins.
@@ -23,10 +23,10 @@ class SiriProxy::Plugin::Test < SiriProxy::Plugin
       @imac_ip_adress = config["imac_ip_adress"]
       @imac_ssh_user_name = config["imac_ssh_user_name"]
       @imac_ssh_password = config["imac_ssh_password"]
-      
       @macbookpro_ip_adress = config["macbookpro_ip_adress"]
       @macbookpro_ssh_user_name = config["macbookpro_ssh_user_name"]
-      @macbookpro_ssh_password = config["macbookpro_ssh_password"]
+      @macbookpro_ssh_password
+       = config["macbookpro_ssh_password"]
   end
     
 listen_for /mac open iTunes/i do
