@@ -58,11 +58,24 @@ listen_for /mac down itunes /i do
     end
 end
 
+listen_for /mac chanson suivante /i do
+    say "itunes down"
+    Net::SSH.start( @macbookpro_ip_adress, @macbookpro_ssh_user_name, :password => @macbookpro_ssh_password ) do|ssh|    ssh.exec!("osascript -e 'tell application \"iTunes\" to next track'")
+    end
+end
+
 listen_for /mac up itunes /i do
     say "itunes up"
 Net::SSH.start( @macbookpro_ip_adress, @macbookpro_ssh_user_name, :password => @macbookpro_ssh_password ) do|ssh|    ssh.exec!("osascript -e 'tell application \"iTunes\" to previous track'")
         end
 end
+
+listen_for /mac chanson précédente /i do
+    say "itunes up"
+Net::SSH.start( @macbookpro_ip_adress, @macbookpro_ssh_user_name, :password => @macbookpro_ssh_password ) do|ssh|    ssh.exec!("osascript -e 'tell application \"iTunes\" to previous track'")
+        end
+end
+
 listen_for /mac stop itunes /i do
     say "itunes pause"
 Net::SSH.start( @macbookpro_ip_adress, @macbookpro_ssh_user_name, :password => @macbookpro_ssh_password ) do|ssh|        ssh.exec!("osascript -e 'tell application \"iTunes\" to pause'")
